@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -f DensTest1.dat
+rm -f DensTest2.dat
+./DensGrad 7 7 1050.0 1800.0 128 124 80 100 1.25 DensTest1.dat DensTest2.dat

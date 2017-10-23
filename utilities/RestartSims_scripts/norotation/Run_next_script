@@ -1,0 +1,19 @@
+#!/bin/bash
+
+PR="0.03"
+TAU="0.03"
+RM1="-7.87"
+XRES="64"
+YRES="64"
+ZRES="64"
+LX="100"
+LY="100"
+LZ="100"
+NUMTS="1000"
+PROC1="1"
+PROC2="16"
+
+echo "Run number: " $1
+
+./CreateParamFile $1 $PR $TAU $RM1 $XRES $YRES $ZRES $LX $LY $LZ $NUMTS $PROC1 $PROC2
+qsub batch.pbs

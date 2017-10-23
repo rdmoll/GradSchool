@@ -1,0 +1,9 @@
+#!/bin/bash
+
+rm -f FFTW_WISDOM*
+mkdir -p error_output
+mv *.e* error_output 2>/dev/null
+mv *.o* error_output 2>/dev/null
+mv stdoutfile_* error_output 2>/dev/null
+
+#gnuplot post_run.gnu

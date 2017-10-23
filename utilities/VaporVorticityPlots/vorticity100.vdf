@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<Metadata BlockSize="32 32 32"  DimensionLength="96 96 96"  FilterCoefficients="1"  LiftingCoefficients="1"  MSBFirst="1"  NumTransforms="4"  VDFVersion="5" >
+<GridPermutation Type="Long">
+  0 1 2 
+</GridPermutation>
+<NumTimeSteps Type="Long">
+  1 
+</NumTimeSteps>
+<PeriodicBoundary Type="Long">
+  0 0 0 
+</PeriodicBoundary>
+<Extents Type="Double">
+  0 0 0 1 1 1 
+</Extents>
+<MissingValue Type="Double">
+  
+</MissingValue>
+<Comment Type="String">
+  
+</Comment>
+<CoordinateSystem Type="String">
+  cartesian
+</CoordinateSystem>
+<CoordinateVariables Type="String">
+  NONE NONE ELEVATION
+</CoordinateVariables>
+<GridType Type="String">
+  regular
+</GridType>
+<VariableNames Type="String">
+  omz
+</VariableNames>
+<Variables2DXY Type="String">
+  
+</Variables2DXY>
+<Variables2DXZ Type="String">
+  
+</Variables2DXZ>
+<Variables2DYZ Type="String">
+  
+</Variables2DYZ>
+<Variables3D Type="String">
+  omz
+</Variables3D>
+<TimeStep>
+<UserTime Type="Double">
+  0 
+</UserTime>
+<AuxBasePath Type="String">
+  auxdata/auxdata.0000
+</AuxBasePath>
+<UserTimeStampString Type="String">
+  0
+</UserTimeStampString>
+<omz>
+<BasePath Type="String">
+  omz/omz.0000
+</BasePath>
+</omz>
+</TimeStep>
+</Metadata>

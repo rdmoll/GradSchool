@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PR="0.03"
+TAU="0.03"
+RM1="-7.87"
+ROT_PARAM="0.03"
+ROT_ANGLE="0.0"
+XRES="64"
+YRES="64"
+ZRES="64"
+LX="100"
+LY="100"
+LZ="100"
+NUMTS="1000"
+PROC1="2"
+PROC2="16"
+
+echo "Run number: " $1
+
+./CreateParamFile_rot $1 $PR $TAU $RM1 $ROT_PARAM $ROT_ANGLE $XRES $YRES $ZRES $LX $LY $LZ $NUMTS $PROC1 $PROC2
+qsub batch.pbs
