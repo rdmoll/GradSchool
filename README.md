@@ -1,21 +1,12 @@
 # Portfolio
-A sampling of codes I have written as a graduate student and post-doctoral researcher
+#A sampling of codes I have written as a graduate student and post-doctoral researcher
 
-<<<< Fortran >>>>
-  DensGrad
-  Rich_Num
-  WaveNum_ExpVal
+#<<<< Fortran >>>> DensGrad, Rich_Num, WaveNum_ExpVal
 
-<<<< C++ >>>>
-  netCDF_extract
-  CodePractice
+#<<<< C++ >>>> netCDF_extract, CodePractice
 
-<<<< Shell Script >>>>
-  RestartSims_script
-  VaporVorticityPlots
+#<<<< Shell Script >>>> RestartSims_script, VaporVorticityPlots
 
-<<<< MATLAB >>>>
-  HorizontalConvection
+#<<<< MATLAB >>>> HorizontalConvection
 
-<<<< Python >>>>
-  Saturation_Level
+#<<<< Python >>>> Saturation_Level
