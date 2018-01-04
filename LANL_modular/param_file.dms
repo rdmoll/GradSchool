@@ -1,0 +1,16 @@
+&input_values
+number_r_steps          = 400
+domain_size             = 425e-6
+time_steps              = 100000
+cfl_factor              = 0.6
+initial_time_step       = 1e-14
+adiabatic_index         = 1.66667
+inner_boundary          = .94
+forced_region_zones     = 15
+initial_pressure        = 2026500.0
+initial_T_gas           = 300.0
+density_change          = 100.0
+initial_en_pulse        = 2.2e13
+ionization_fraction     = 1.0
+output_file_name        = "DataOUT.dat"
+/
