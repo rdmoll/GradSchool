@@ -1,7 +1,7 @@
 # Portfolio
 #A sampling of codes I have written as a graduate student and post-doctoral researcher
 
-#<<<< Fortran >>>> DensGrad, Rich_Num, WaveNum_ExpVal
+#<<<< Fortran >>>> DensGrad, Rich_Num, WaveNum_ExpVal, LANL_modular
 
 #<<<< C++ >>>> netCDF_extract, CodePractice
 
