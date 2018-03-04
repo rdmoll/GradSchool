@@ -12,5 +12,5 @@ initial_T_gas           = 300.0
 density_change          = 100.0
 initial_en_pulse        = 2.2e13
 ionization_fraction     = 1.0
-output_file_name        = "DataOUT.dat"
+output_file_name        = "./PostProc/DataOUT.dat"
 /

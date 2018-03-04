@@ -25,7 +25,7 @@ namespace ReadNetCDF
       void WriteData( const char* );
 
     protected:
-      typedef void (ReadNetCDF::*functionArray)(int,int,int,int);
+      typedef void (ReadNetCDF::*functionArray)(int,int,int,int);   // Define pointer to function
 
       int retval,ncid;
       int dimid_x,dimid_y,dimid_z,dimid_time;
@@ -40,14 +40,14 @@ namespace ReadNetCDF
       std::vector<float> T;
       std::vector<float> C;
 
-      std::vector<std::vector<float> > CalcVars;
-      std::vector<functionArray> AllFuncs;
-      std::vector<int> funCount;
-      void Tav( int,int,int,int );
-      void Cav( int,int,int,int );
-      void uzT( int,int,int,int );
-      void uzC( int,int,int,int );
-      void KEav( int,int,int,int );
+      std::vector<std::vector<float> > CalcVars;    // 2D vector of variables
+      std::vector<functionArray> AllFuncs;          // Vector of function pointers
+      std::vector<int> funCount;                    // Vector of positions for output columns
+      void Tav( int,int,int,int );                  // Functions to perform on raw data
+      void Cav( int,int,int,int );                  // ""
+      void uzT( int,int,int,int );                  // ""
+      void uzC( int,int,int,int );                  // ""
+      void KEav( int,int,int,int );                 // ""
   };
 }
 

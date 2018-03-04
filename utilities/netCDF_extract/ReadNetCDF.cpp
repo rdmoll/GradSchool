@@ -51,15 +51,15 @@ namespace ReadNetCDF
     T.resize(totLength,0.0);
     C.resize(totLength,0.0);
 
-    AllFuncs.push_back(&ReadNetCDF::Tav);
+    AllFuncs.push_back(&ReadNetCDF::Tav);   // Load AllFuncs with points to functions
     AllFuncs.push_back(&ReadNetCDF::Cav);
     AllFuncs.push_back(&ReadNetCDF::uzT);
     AllFuncs.push_back(&ReadNetCDF::uzC);
     AllFuncs.push_back(&ReadNetCDF::KEav);
 
-    funcNum = AllFuncs.size();
+    funcNum = AllFuncs.size();              // Get number of functions
 
-    CalcVars.resize(funcNum,std::vector<float>(dimlen_z,0.0));
+    CalcVars.resize(funcNum,std::vector<float>(dimlen_z,0.0));  // Resize CalcVars to hold all data
   }
 
   ReadNetCDF::~ReadNetCDF()
@@ -98,6 +98,7 @@ namespace ReadNetCDF
 
     start[0] = ts;
 
+    //Read data from netCDF files
     if ((retval = nc_get_vara_float(ncid,varid_ux,start,count,&ux[0]))){ERR(retval);}
     if ((retval = nc_get_vara_float(ncid,varid_uy,start,count,&uy[0]))){ERR(retval);}
     if ((retval = nc_get_vara_float(ncid,varid_uz,start,count,&uz[0]))){ERR(retval);}
@@ -105,30 +106,35 @@ namespace ReadNetCDF
     if ((retval = nc_get_vara_float(ncid,varid_C,start,count,&C[0]))){ERR(retval);}
   }
 
+  // Horizontal average of temperature
   void ReadNetCDF::Tav(int i,int j,int k,int var)
   {
     int index = dimlen_y*dimlen_x*k + dimlen_x*j + i;
     CalcVars[var][k] = CalcVars[var][k] + T[index];
   }
 
+  // Horizontal average of chemical composition
   void ReadNetCDF::Cav(int i,int j,int k,int var)
   {
     int index = dimlen_y*dimlen_x*k + dimlen_x*j + i;
     CalcVars[var][k] = CalcVars[var][k] + C[index];
   }
 
+  // Horizontal average of temperature flux
   void ReadNetCDF::uzT(int i,int j,int k,int var)
   {
     int index = dimlen_y*dimlen_x*k + dimlen_x*j + i;
     CalcVars[var][k] = CalcVars[var][k] + uz[index]*T[index];
   }
 
+  // Horizontal average of compositional flux
   void ReadNetCDF::uzC(int i,int j,int k,int var)
   {
     int index = dimlen_y*dimlen_x*k + dimlen_x*j + i;
     CalcVars[var][k] = CalcVars[var][k] + uz[index]*C[index];
   }
 
+  // Horizontal average of kinetic energy
   void ReadNetCDF::KEav(int i,int j,int k,int var)
   {
     int index = dimlen_y*dimlen_x*k + dimlen_x*j + i;
@@ -137,7 +143,7 @@ namespace ReadNetCDF
                                              + uz[index]*uz[index]);
   }
 
-  void ReadNetCDF::Calc(int var)
+  void ReadNetCDF::Calc(int var)  //Generic function for calling data processing functions
   {
     funCount.push_back(var);
     for(int k=0; k<dimlen_z; k++)
@@ -146,14 +152,14 @@ namespace ReadNetCDF
       {
         for(int i=0; i<dimlen_x; i++)
         {
-          (this->*AllFuncs[var])(i,j,k,var);
+          (this->*AllFuncs[var])(i,j,k,var);  // Call functions indexed by 'var'
         }
       }
       CalcVars[var][k] /= dimlen_x*dimlen_y;
     }
   }
 
-  void ReadNetCDF::WriteData(const char* cppOutput)
+  void ReadNetCDF::WriteData(const char* cppOutput)   // Write data to file
   {
     std::ofstream fileHandle;
     fileHandle.open(cppOutput);
